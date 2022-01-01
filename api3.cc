@@ -908,7 +908,7 @@ static void VS_CC vs4::pubFunc(const vs3::VSMap *in, vs3::VSMap *out, void *user
 	pd->func(C(in), C(out), pd->data, C(core), &vs4::api4);
 }
 
-static int vs4::registerFunction(const char *name, const char *args, const char *returnType, vs4::VSPublicFunction argsFunc, void *functionData, vs4::VSPlugin *plugin) VS_NOEXCEPT {
+static int VS_CC vs4::registerFunction(const char *name, const char *args, const char *returnType, vs4::VSPublicFunction argsFunc, void *functionData, vs4::VSPlugin *plugin) VS_NOEXCEPT {
 	std::vector<std::string> argList, argsOut;
 	util::split(argList, std::string(args), std::string(";"), util::split1::no_empties);
 	std::string args3;
