@@ -28,7 +28,8 @@ change that.)
 
 Suppose you are stuck with VS R54, but you want to use a *video* plugin `filter.dll`
 that only has api4 support. You can download the released `api3.dll` and save it
-as `filter.api3.dll` along side with `filter.dll` into VS `plugins` directory.
+as `filter.api3.dll` along side with `filter.dll` into VS `plugins` directory. And
+then you should be able to use the filter in your api3 VS as usual.
 
 Note for Unix users: as this process involves making multiple copies of `api3.so`
 if you have multiple api4 plugins to wrap, in order to save disk space, please
@@ -39,3 +40,7 @@ use *hard* links instead of symbolic links.
 For plugin developers, this project can help you support both api3 and api4 without
 any code duplication. Just migrate to api4 and include api3.cc in your project. And
 the rest should be automatically handled.
+
+As a concrete example, [TCanny](https://github.com/HomeOfVapourSynthEvolution/VapourSynth-TCanny)
+has switched to api4 recently. By using this project, we just need to slightly [tweak](https://github.com/AmusementClub/VapourSynth-TCanny/commit/4700c10c0118a9178604240d3fe131bf72228e72)
+its build workflow to make a hybrid api3/api4 filter [release](https://github.com/AmusementClub/VapourSynth-TCanny/releases/tag/r13.AC2).
