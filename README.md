@@ -41,6 +41,6 @@ For plugin developers, this project can help you support both api3 and api4 with
 any code duplication. Just migrate to api4 and include api3.cc in your project. And
 the rest should be automatically handled.
 
-As a concrete example, [TCanny](https://github.com/HomeOfVapourSynthEvolution/VapourSynth-TCanny)
-has switched to api4 recently. By using this project, we just need to slightly [tweak](https://github.com/AmusementClub/VapourSynth-TCanny/commit/4700c10c0118a9178604240d3fe131bf72228e72)
-its build workflow to make a hybrid api3/api4 filter [release](https://github.com/AmusementClub/VapourSynth-TCanny/releases/tag/r13.AC2).
+Examples:
+ - [TCanny](https://github.com/HomeOfVapourSynthEvolution/VapourSynth-TCanny) has switched to api4 recently. By using this project, we just need to slightly [tweak](https://github.com/AmusementClub/VapourSynth-TCanny/commit/4700c10c0118a9178604240d3fe131bf72228e72) its build workflow to make a hybrid api3/api4 filter [release](https://github.com/AmusementClub/VapourSynth-TCanny/releases/tag/r13.AC2).
+ - One [FFT3DFilter](https://github.com/myrsloik/VapourSynth-FFT3DFilter) fork has received some significant speed optimizations, but it's only available with an api4 interface. Again, we [tweaked](https://github.com/AmusementClub/VapourSynth-FFT3DFilter/commit/65a310689d29e7f4725b8169d3bac2c0f577367e) the build workflow to produce a hybrid api3/api4 filter [release](https://github.com/AmusementClub/VapourSynth-FFT3DFilter/releases/tag/R2.AC).
