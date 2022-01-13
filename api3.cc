@@ -625,7 +625,15 @@ static const char *VS_CC getPluginPath(const VSPlugin *plugin) VS_NOEXCEPT {
 	return vs3::api3.getPluginPath(C(plugin));
 }
 static int VS_CC getPluginVersion(const VSPlugin *plugin) VS_NOEXCEPT { return 1; }
-static VSMap *VS_CC invoke(VSPlugin *plugin, const char *name, const VSMap *args) VS_NOEXCEPT { return C(vs3::api3.invoke(C(plugin), name, C(args))); }
+static VSMap *VS_CC invoke(VSPlugin *plugin, const char *name, const VSMap *args) VS_NOEXCEPT {
+	if (strcmp(name, "ShufflePlanes") == 0) {
+		int err;
+		vs4::VSColorFamily cf = (vs4::VSColorFamily)vs3::api3.propGetInt(C(args), "colorfamily", 0, &err);
+		if (err == 0)
+			vs3::api3.propSetInt((vs3::VSMap *)C(args), "colorfamily", (int)C(cf), vs3::paReplace);
+	}
+	return C(vs3::api3.invoke(C(plugin), name, C(args)));
+}
 
 /* Core and information */
 static VSCore *VS_CC createCore(int flags) VS_NOEXCEPT { WONTIMPL(); }
