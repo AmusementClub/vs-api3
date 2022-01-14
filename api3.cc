@@ -20,7 +20,7 @@
 //    per filter instance so that the cache will not grow unbounded.
 // 2. On Unix, you can't use symlink to save space for various *.api3.so bridges,
 //    as VS already uses realpath to resolve symlinks when loading plugins.
-#define VERSION "v1.0"
+#define VERSION "v2.1"
 #define USE_TLS // use per-filter-instance videoinfo/format cache
 #ifndef _GNU_SOURCE
 #define _GNU_SOURCE
@@ -646,6 +646,7 @@ static void VS_CC getCoreInfo(VSCore *core, VSCoreInfo *info) VS_NOEXCEPT {
 	info->versionString = info3.versionString;
 	info->core = info3.core;
 	info->api = info3.api;
+	info->numThreads = info3.numThreads;
 	info->maxFramebufferSize = info3.maxFramebufferSize;
 	info->usedFramebufferSize = info3.usedFramebufferSize;
 }
